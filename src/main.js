@@ -7,7 +7,7 @@ import router from "./router";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import "./assets/main.css";
+import "../public/assets/main.css";
 import "../src/index.css"
 import 'atropos/css'
 

@@ -13,15 +13,15 @@
                         </button>
                         <ul class="slide-container">
                             <li class="slide1 text-4xl">
-                                <img class="imageGameMode" src="../assets/GameMode/aram.jpeg" alt="">
+                                <img class="imageGameMode" src="/assets/GameMode/aram.jpeg" alt="">
                             </li>
                             <li class="slide2 text-4xl">
                                 <video autoplay muted loop class="imageGameMode" id="video">
-                                    <source src="../assets/SRTrailer.mp4">
+                                    <source src="/assets/SRTrailer.mp4">
                                 </video>
                             </li>
                             <li class="slide3 text-4xl">
-                                <img class="iimageGameMode" src="../assets/GameMode/tft.jpg" alt="">
+                                <img class="iimageGameMode" src="/assets/GameMode/tft.jpg" alt="">
                             </li>
                         </ul>
                         <button class="slideToRight">
@@ -36,7 +36,7 @@
                             <h1 class="titleContent1">Aram</h1>
                         </div>
                         <div class="separationPart1">
-                            <img src="../assets/GameMode/Vector.svg" alt="">
+                            <img src="/assets/GameMode/Vector.svg" alt="">
                         </div>
                         <div class="describeContent">
                             <div class="descriibeContent1">
@@ -72,7 +72,7 @@
                             <h1 class="titleContent2">Summoner's Rift</h1>
                         </div>
                         <div class="separationPart2">
-                            <img src="../assets/GameMode/Vector.svg" alt="">
+                            <img src="/assets/GameMode/Vector.svg" alt="">
                         </div>
                         <div class="describeContent">
                             <div class="descriibeContent2">
@@ -96,7 +96,7 @@
                             <h1 class="titleContent3">Teamfight Tactics</h1>
                         </div>
                         <div class="separationPart3">
-                            <img src="../assets/GameMode/Vector.svg" alt="">
+                            <img src="/assets/GameMode/Vector.svg" alt="">
                         </div>
                         <div class="describeContent">
                             <div class="descriibeContent3">
@@ -633,7 +633,7 @@ export default {
 .main {
     width: 100%;
     height: 100vh;
-    background-image: url('../assets/image2.jpeg');
+    background-image: url('/assets/image2.jpeg');
     object-fit: cover;
 
 }

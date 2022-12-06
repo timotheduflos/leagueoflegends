@@ -3,7 +3,7 @@
         <div class="px-4 py-4">
             <h1 class="championName">{{ champion.name }}</h1>
             <img class="flex justify-center w-full pt-4"
-                :src="`../src/assets/img/champion/loading/${champion.id}_0.jpg`" :width="150" />
+                :src="`/assets/img/champion/loading/${champion.id}_0.jpg`" :width="150" />
             <router-link :to="`/champion/${champion.id}`">
                 <button class="buttonSee text-white w-full">See Champion</button>
             </router-link>

@@ -1,13 +1,13 @@
 <template>
     <div class="navbar py-2 px-8 bg-black grid grid-cols-5 text-white">
         <div class="place-self-center w-full">
-            <img src="@/assets/riot-games-seeklogo.com.svg" alt="logo riot" class="logoRiot">
+            <img src="/assets/riot-games-seeklogo.com.svg" alt="logo riot" class="logoRiot">
         </div>
         <div class="place-self-center">
             <button class="" id="button">Discover</button>
         </div>
         <div class="">
-            <router-link to="/"><img src="@/assets/lol.png" alt="" class="logoLol"></router-link>
+            <router-link to="/"><img src="/assets/lol.png" alt="" class="logoLol"></router-link>
         </div>
         <div class="place-self-center">
             <router-link to="/champions"><button id="button">Champions</button></router-link>

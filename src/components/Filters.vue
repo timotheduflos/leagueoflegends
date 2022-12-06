@@ -12,7 +12,7 @@
                 </svg>
             </button>
         </div>
-        <img src="../assets/GameMode/Vector.svg" width="600" class="self-center">
+        <img src="/assets/GameMode/Vector.svg" width="600" class="self-center">
         <div class="w-full text-center flex justify-center text-sm gap-5">
             <button class="filterButton assassin" v-for="filter in filters" :key="filter"
                 @click="filterChampion(filter)">{{ filter }}</button>

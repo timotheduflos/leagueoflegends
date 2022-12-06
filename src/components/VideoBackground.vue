@@ -2,7 +2,7 @@
     <div>
         <div class="videoContainer">
             <video autoplay muted loop id="videoTest">
-                <source src="@/assets/video.mp4" type="video/mp4">
+                <source src="/assets/video.mp4" type="video/mp4">
             </video>
         </div>
         <div class="videoContent text-white text-4xl w-full">

@@ -79,7 +79,7 @@
                     <div class="assassinDescribe flex gap-12 w-3/6">
                         <div class="imageContainer">
                             <atropos class="atropos w-full">
-                                <img class="imageContainerAssassin" src="../assets/Champions/pyke1.jpeg" alt="">
+                                <img class="imageContainerAssassin" src="/assets/Champions/pyke1.jpeg" alt="">
                             </atropos>
                         </div>
                         <div class="flex flex-col">
@@ -101,7 +101,7 @@
                     <div class="fightersDescribe flex gap-12 w-3/6">
                         <div class="imageContainer">
                             <atropos class="atropos w-full">
-                                <img class="imageContainerFighters" src="../assets/Champions/belveth1.jpeg" alt="">
+                                <img class="imageContainerFighters" src="/assets/Champions/belveth1.jpeg" alt="">
                             </atropos>
                         </div>
                         <div class="flex flex-col">
@@ -122,7 +122,7 @@
                     <div class="mageDescribe flex gap-12 w-3/6">
                         <div class="imageContainer">
                             <atropos class="atropos w-full">
-                                <img class="imageContainerMage" src="../assets/Champions/seraphine1.jpeg" alt="">
+                                <img class="imageContainerMage" src="/assets/Champions/seraphine1.jpeg" alt="">
                             </atropos>
                         </div>
                         <div class="flex flex-col">
@@ -145,7 +145,7 @@
                     <div class="marksmenDescribe flex gap-12 w-3/6">
                         <div class="imageContainer">
                             <atropos class="atropos w-full">
-                                <img class="imageContainerMarksmen" src="../assets/Champions/twitch1.jpeg" alt="">
+                                <img class="imageContainerMarksmen" src="/assets/Champions/twitch1.jpeg" alt="">
                             </atropos>
                         </div>
                         <div class="flex flex-col">
@@ -166,7 +166,7 @@
                     <div class="supportsDescribe flex gap-12 w-3/6">
                         <div class="imageContainer">
                             <atropos class="atropos w-full">
-                                <img class="imageContainerSupports" src="../assets/Champions/janna1.jpeg" alt="">
+                                <img class="imageContainerSupports" src="/assets/Champions/janna1.jpeg" alt="">
                             </atropos>
                         </div>
                         <div class="flex flex-col">
@@ -186,7 +186,7 @@
                     <div class="tankDescribe flex gap-12 w-3/6">
                         <div>
                             <atropos class="atropos w-full">
-                                <img class="imageContainerTank" src="../assets/Champions/ornn1.jpeg" alt="">
+                                <img class="imageContainerTank" src="/assets/Champions/ornn1.jpeg" alt="">
                             </atropos>
                         </div>
                         <div class="flex flex-col">
@@ -761,7 +761,7 @@ export default {
 .main {
     width: 100%;
     height: 100vh;
-    background-image: url('../assets/image1.jpeg');
+    background-image: url('/assets/image1.jpeg');
     object-fit: contain;
 
 }

@@ -15,7 +15,7 @@
                             <div class="grid grid-cols-5 gap-5 place-content-center">
                                 <div class="rolePart flex justify-center gap-10 col-span-2">
                                     <div v-for="tags in resultSpecific.tags" class="flex flex-col justify-center">
-                                        <img :src="(`../src/assets/Role/` + tags + `.svg`)"
+                                        <img :src="(`/assets/Role/` + tags + `.svg`)"
                                             class="roleSvg place-self-center">
                                         <h1 class="tagsName">{{ tags }}</h1>
                                     </div>
@@ -145,7 +145,7 @@ export default {
 
             console.log(this.resultSpecific)
 
-            this.backgroundImage = "url(../src/assets/img/champion/centered/" + id + "_0.jpg)"
+            this.backgroundImage = "url(/assets/img/champion/centered/" + id + "_0.jpg)"
             this.loaded = true;
         },
 
