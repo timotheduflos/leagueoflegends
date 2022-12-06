@@ -39,6 +39,7 @@ export default {
             sessionStorage.setItem("champion", result)
         
             this.result = result
+            console.log(this.result)
 
             this.champions = this.result
 

@@ -145,7 +145,7 @@ export default {
 
             console.log(this.resultSpecific)
 
-            this.backgroundImage = "url(/assets/img/champion/centered/" + id + "_0.jpg)"
+            this.backgroundImage = "url(https://ddragon.leagueoflegends.com/cdn/img/champion/centered/" + id + "_0.jpg)"
             this.loaded = true;
         },
 
