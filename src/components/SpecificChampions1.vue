@@ -91,6 +91,10 @@
                                     <SpellChampion :resultSpecific="resultSpecific" :id="id" />
                                 </div>
                             </div>
+                            <div class="skin w-full">
+                                <h1>Skins Available</h1>
+                                <SkinChampion :resultSpecific="resultSpecific" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,12 +105,15 @@
 
 <script>
 import SpellChampion from './SpellChampion.vue'
+import SkinChampion from './SkinChampion.vue'
+
 import gsap from 'gsap'
 
 export default {
     name: 'Appp',
     components: {
         SpellChampion,
+        SkinChampion,
     },
 
     data() {
@@ -123,7 +130,7 @@ export default {
 
             let id = this.$route.params.id
 
-            var a = await fetch('http://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion/' + id + '.json')
+            var a = await fetch('https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion/' + id + '.json')
             var b = await a.json()
 
             var result = []
@@ -156,18 +163,18 @@ export default {
                         .add('go')
                         .fromTo(spell, {
                             display: 'block',
-                            y:0,
+                            y: 0,
                             opaciy: 1
-                        },{
-                            y:100,
+                        }, {
+                            y: 100,
                             opacity: 0,
                             duration: 1,
                             display: 'none',
                         }, 'go')
-                        
+
                         .fromTo(svg, {
                             rotation: 180
-                        },{
+                        }, {
                             rotation: 0,
                             duration: 0.5,
                         }, 'go');
@@ -176,18 +183,18 @@ export default {
                         .add('go')
                         .fromTo(spell, {
                             display: 'none',
-                            y:100,
+                            y: 100,
                             opaciy: 0
-                        },{
+                        }, {
                             display: 'block',
-                            y:0,
+                            y: 0,
                             opacity: 1,
                             duration: 1,
                         }, 'go')
-                        
+
                         .fromTo(svg, {
-                            rotation:0
-                        },{
+                            rotation: 0
+                        }, {
                             rotation: 180,
                             duration: 0.5,
                         }, 'go');;
@@ -348,6 +355,16 @@ export default {
 }
 
 .spell h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.skin {
+    padding-top: 50px;
+}
+
+.skin h1{
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     font-size: 25px;

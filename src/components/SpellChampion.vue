@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import gsap from 'gsap'
 export default {
     props: [
         'resultSpecific',
@@ -46,15 +45,12 @@ export default {
 </script>
 
 <style scoped>
-
     .key{
         background-color: white;
         font-weight: 400;
         color: black;
         width: 40px;
         height: 40px;
-        margin-top: 0;
-        margin-left: 0;
         display: flex;
         align-items: center;
         justify-content: center;
