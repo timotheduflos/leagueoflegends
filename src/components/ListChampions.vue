@@ -27,7 +27,7 @@ export default {
 
     methods: {
         async listChampions() {
-            let a = await fetch('http://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json')
+            let a = await fetch('https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json')
             const b = await a.json();
 
             this.champions = b.data
