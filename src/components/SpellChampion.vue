@@ -1,7 +1,7 @@
 <template>
     <div v-for="spells, index in resultSpecific.spells" :key="index" class="flex">
         <div class="grid grid-cols-3 w-full place-items-center gap-4 py-8 rounded-xl px-4" :style="`background:${background[index]}`">
-            <img :src='`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/${spells.image.full}`' alt="">
+            <img :src='`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/${spells.image.full}`' alt="">
             <h1 class="name">{{ spells.name }}</h1>
             <h1 class="key">{{letter[index]}}</h1>
             <div class="content col-span-3" v-html="spells.description">
