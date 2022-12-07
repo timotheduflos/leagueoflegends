@@ -1,6 +1,17 @@
-# LolProject2
+# League of Legend - Timothe Duflos Project
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is in 3 parts : 
+
+- HomePage : Simulates a homepage that could be on the official game website.
+- Champions : <br>
+    1 - Display a list of all champions via the Riot Games API. <br>
+    2 - Can check specific caracteristics of champions.<br>
+- User : <br>
+    1 - Need to be logged to access this part.<br>
+    2 - Can check caracteristic about last games of specific user.<br>
+    <br>
+🚨 The project is in constent evolution, it is not finished 🚨
+
 
 ## Recommended IDE Setup
 
