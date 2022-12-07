@@ -15,8 +15,7 @@
                             <div class="grid grid-cols-5 gap-5 place-content-center">
                                 <div class="rolePart flex justify-center gap-10 col-span-2">
                                     <div v-for="tags in resultSpecific.tags" class="flex flex-col justify-center">
-                                        <img :src="(`/assets/Role/` + tags + `.svg`)"
-                                            class="roleSvg place-self-center">
+                                        <img :src="(`/assets/Role/` + tags + `.svg`)" class="roleSvg place-self-center">
                                         <h1 class="tagsName">{{ tags }}</h1>
                                     </div>
                                 </div>
@@ -73,15 +72,24 @@
                                 </div>
                             </div>
                             <div class="history">
-                                <h1>Resume</h1>
-                                <p>{{ resultSpecific.lore }}</p>
+                                <div class="w-full flex justify-center">
+                                    <button class="flex gap-4 justify-center items-center" id="buttonLore">
+                                        <h1 class="nameLore">Lore</h1>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="svgButtonLore w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <p class="lore" v-html="resultSpecific.lore"></p>
                             </div>
                             <div class="spell">
                                 <div class="w-full flex justify-center">
                                     <button class="flex gap-4 justify-center items-center" id="buttonSpell">
                                         <h1 class="nameSpell">Spells</h1>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="svgButton w-6 h-6">
+                                            stroke-width="1.5" stroke="currentColor" class="svgButtonSpell w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
@@ -151,25 +159,47 @@ export default {
 
         showSpell() {
             var button = document.querySelector('#buttonSpell')
-            var svg = document.querySelector('.svgButton')
+            var svg = document.querySelector('.svgButtonSpell')
             console.log(svg)
             var spell = document.querySelector('.listSpell')
 
-            spell.style.display = 'none'
+            // spell.style.display = 'none'
             // console.log(a)
             button.addEventListener('click', () => {
-                if (spell.style.display === 'block') {
+                if (spell.classList.contains('active') == false) {
+                    spell.classList.toggle('active')
+                    gsap.timeline()
+                        .to('.nameSpell', {
+                            color: '#e31523',
+                        }, 'go')
+
+                        .fromTo(svg, {
+                            rotation: 0
+                        }, {
+                            rotation: 180,
+                            duration: 0.5,
+                        }, 'go');
+                    setTimeout(() => {
+                        gsap.timeline()
+                            .add('go')
+                            .fromTo(spell, {
+                                opacity: 0
+                            }, {
+                                opacity: 1
+                            }, 'go');
+                    }, 300)
+                } else {
                     gsap.timeline()
                         .add('go')
                         .fromTo(spell, {
-                            display: 'block',
-                            y: 0,
-                            opaciy: 1
+                            opacity: 1,
                         }, {
-                            y: 100,
                             opacity: 0,
-                            duration: 1,
-                            display: 'none',
+                            duration: 0.5,
+                        }, 'go')
+
+                        .to('.nameSpell', {
+                            color: '#fff',
                         }, 'go')
 
                         .fromTo(svg, {
@@ -178,18 +208,27 @@ export default {
                             rotation: 0,
                             duration: 0.5,
                         }, 'go');
-                } else {
+                    setTimeout(() => {
+                        spell.classList.remove('active')
+                    }, 500)
+                }
+            })
+        },
+
+        showLore() {
+            var button = document.querySelector('#buttonLore')
+            var svg = document.querySelector('.svgButtonLore')
+            console.log(svg)
+            var lore = document.querySelector('.lore')
+
+            // lore.style.display = 'none'
+            // console.log(a)
+            button.addEventListener('click', () => {
+                if (lore.classList.contains('active') == false) {
+                    lore.classList.toggle('active')
                     gsap.timeline()
-                        .add('go')
-                        .fromTo(spell, {
-                            display: 'none',
-                            y: 100,
-                            opaciy: 0
-                        }, {
-                            display: 'block',
-                            y: 0,
-                            opacity: 1,
-                            duration: 1,
+                        .to('.nameLore', {
+                            color: '#e31523',
                         }, 'go')
 
                         .fromTo(svg, {
@@ -197,7 +236,39 @@ export default {
                         }, {
                             rotation: 180,
                             duration: 0.5,
-                        }, 'go');;
+                        }, 'go');
+                    setTimeout(() => {
+                        gsap.timeline()
+                            .add('go')
+                            .fromTo(lore, {
+                                opacity: 0
+                            }, {
+                                opacity: 1
+                            }, 'go');
+                    }, 300)
+                } else {
+                    gsap.timeline()
+                        .add('go')
+                        .fromTo(lore, {
+                            opacity: 1,
+                        }, {
+                            opacity: 0,
+                            duration: 0.5,
+                        }, 'go')
+
+                        .to('.nameLore', {
+                            color: '#fff',
+                        }, 'go')
+
+                        .fromTo(svg, {
+                            rotation: 180
+                        }, {
+                            rotation: 0,
+                            duration: 0.5,
+                        }, 'go');
+                    setTimeout(() => {
+                        lore.classList.remove('active')
+                    }, 500)
                 }
             })
         }
@@ -209,6 +280,7 @@ export default {
 
     mounted() {
         this.showSpell();
+        this.showLore();
     },
 }
 </script>
@@ -342,6 +414,7 @@ export default {
 
 .history {
     padding-top: 50px;
+    position: relative;
 }
 
 .history h1 {
@@ -350,8 +423,20 @@ export default {
     font-size: 25px;
 }
 
+.lore {
+    height: 0px;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+}
+
+.lore.active {
+    height: 160px;
+}
+
 .spell {
     padding-top: 50px;
+    position: relative
 }
 
 .spell h1 {
@@ -360,11 +445,22 @@ export default {
     font-size: 25px;
 }
 
+.listSpell {
+    height: 0px;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+}
+
+.listSpell.active {
+    height: 700px;
+}
+
 .skin {
     padding-top: 50px;
 }
 
-.skin h1{
+.skin h1 {
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     font-size: 25px;

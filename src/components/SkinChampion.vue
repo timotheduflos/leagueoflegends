@@ -1,8 +1,6 @@
 <template>
     <div class="text-white">
-        <!-- <div v-for=""> -->
-
-        <!-- </div> -->
+        hello
     </div>
 </template>
 
