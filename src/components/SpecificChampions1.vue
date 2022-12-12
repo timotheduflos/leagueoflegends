@@ -84,6 +84,11 @@
                                 </div>
                                 <p class="lore" v-html="resultSpecific.lore"></p>
                             </div>
+                            <div class="separatorContainer w-full">
+                                <svg height="40" width="" class="separator">
+                                    <line x1="15%" y1="50%" x2="85%" y2="50%" style="stroke-width: 0.5; stroke: white;" />
+                                </svg>
+                            </div>
                             <div class="spell">
                                 <div class="w-full flex justify-center">
                                     <button class="flex gap-4 justify-center items-center" id="buttonSpell">
@@ -99,9 +104,14 @@
                                     <SpellChampion :resultSpecific="resultSpecific" :id="id" />
                                 </div>
                             </div>
+                            <div class="separatorContainer w-full">
+                                <svg height="40" width="" class="separator">
+                                    <line x1="15%" y1="50%" x2="85%" y2="50%" style="stroke-width: 0.5; stroke: white;" />
+                                </svg>
+                            </div>
                             <div class="skin w-full">
                                 <h1>Skins Available</h1>
-                                <SkinChampion :resultSpecific="resultSpecific" />
+                                <SkinChampion :resultSpecific="resultSpecific" :id="id" />
                             </div>
                         </div>
                     </div>
@@ -136,7 +146,7 @@ export default {
     methods: {
         async initialize() {
 
-            let id = this.$route.params.id
+            var id = this.$route.params.id
 
             var a = await fetch('https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion/' + id + '.json')
             var b = await a.json()
@@ -298,7 +308,6 @@ export default {
 }
 
 .subContainer {
-    background: rgb(11, 11, 11);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -333,10 +342,11 @@ export default {
     width: 100%;
     display: flex;
     justify-content: center;
+    background: linear-gradient(to top, rgba(5, 5, 5, 100%), rgba(15, 15, 15, 100%));
 }
 
 .subMain {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0%), rgb(11, 11, 11));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0%), rgb(15, 15, 15, 100%));
     width: 100%;
     height: 100%;
     padding-top: 30%;
@@ -435,7 +445,7 @@ export default {
 }
 
 .spell {
-    padding-top: 50px;
+    /* padding-top: 50px; */
     position: relative
 }
 
@@ -457,12 +467,23 @@ export default {
 }
 
 .skin {
-    padding-top: 50px;
+    
 }
 
 .skin h1 {
     font-family: 'Kanit', sans-serif;
     font-weight: 500;
     font-size: 25px;
+    padding-bottom: 1em;
+}
+
+.separatorContainer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.separator {
+    margin: 0 auto;
 }
 </style>

@@ -4,7 +4,9 @@
             <img src="/assets/riot-games-seeklogo.com.svg" alt="logo riot" class="logoRiot">
         </div>
         <div class="place-self-center">
-            <button class="" id="button">Discover</button>
+            <router-link to="/summoners">
+                <button class="" id="button">Summoners</button>
+            </router-link>
         </div>
         <div class="">
             <router-link to="/"><img src="/assets/lol.png" alt="" class="logoLol"></router-link>
@@ -12,22 +14,55 @@
         <div class="place-self-center">
             <router-link to="/champions"><button id="button">Champions</button></router-link>
         </div>
-        <div class="flex justify-end w-full items-center">
-            <button class="accountButton flex items-center" id="button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>Account
-            </button>
+        <div class="flex justify-end w-full items-center" v-if="(isLoggedIn == false)">
+            <router-link to="/login">
+                <button class="accountButton flex items-center" id="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>Account
+                </button>
+            </router-link>
+        </div>
+        <div class="flex justify-end w-full items-center" v-if="isLoggedIn == true">
+            <router-link to="/dashboard">
+                <button class="accountButton flex items-center" id="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div v-if="getAuth().currentUser.displayName == undefined">
+                        <h1>My Account</h1>
+                    </div>
+                    <div v-else>
+                        {{ getAuth().currentUser.displayName }}
+                    </div>
+                </button>
+            </router-link>
         </div>
     </div>
 </template>
 
-<script>
-export default {
+<script setup>
+import { onMounted, ref } from "vue";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
-}
+const isLoggedIn = ref(false)
+
+onMounted(() => {
+    onAuthStateChanged(getAuth(), (user) => {
+        if (user) {
+            console.log(getAuth().currentUser)
+            isLoggedIn.value = true;
+            return isLoggedIn
+        } else {
+            isLoggedIn.value = false;
+            return isLoggedIn
+        }
+    })
+});
 </script>
 
 <style scoped>

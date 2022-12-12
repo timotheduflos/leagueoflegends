@@ -17,8 +17,7 @@ import Navbar from "./components/Navbar.vue";
   z-index: 100;
 }
 
-.body{
+.body {
   z-index: 0;
 }
-
 </style>
