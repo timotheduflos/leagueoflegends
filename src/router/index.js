@@ -16,7 +16,7 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta:{
-        requiresAuth: false || true ,
+        requiresAuth: false ,
       }          
     },
 
@@ -25,7 +25,7 @@ const router = createRouter({
       name: "champions",
       component: Champion,
       meta:{
-        requiresAuth: true || false,
+        requiresAuth: false,
       }  
     },
 
@@ -34,7 +34,7 @@ const router = createRouter({
       name: "SpecificChampion",
       component: SpecificChampion,
       meta:{
-        requiresAuth: true || false,
+        requiresAuth: false,
       }
     },
 

@@ -11,8 +11,8 @@ import LoginVue from '../components/Login.vue';
 <style scoped> 
 .container{
     padding-top: 12em;
-    background: url('/assets/LeagueofLegends.svg');
-    background-color: rgb(22, 22, 22);
+    background: url('/assets/LeagueofLegends1.svg');
+    background-color: rgb(22, 22, 22, 100%);
     background-size: 100px;
     color: white;
     min-width: 100vw;

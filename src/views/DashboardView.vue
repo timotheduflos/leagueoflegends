@@ -11,6 +11,7 @@ import MyAccount from '../components/MyAccount.vue'
 <style scoped>
 .container {
     /* background: url('/assets/LeagueofLegends.svg'); */
+    background: url('/assets/LeagueofLegends2.svg');
     background-color: rgb(22, 22, 22);
     background-size: 100px;
     color: white;
