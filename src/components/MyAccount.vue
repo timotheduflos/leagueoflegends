@@ -26,12 +26,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="info" v-if="resetPassword">
+                        <div class="text-center py-4 lg:px-4">
+                            <div class="p-2 bg-green-800 items-center text-indigo-100 leading-none lg:rounded-xl flex lg:inline-flex"
+                                role="alert">
+                                <span
+                                    class="flex rounded-full bg-green-500 uppercase px-2 py-1 text-xs font-bold mr-3">Info</span>
+                                <span class="mr-2 text-center flex-auto font-normal">{{resetPassword.value}}</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="button">
                         <div>
                             <button @click="updatePassword" class="resetButton w-full">Reset Password</button>
                         </div>
                         <div class="flex gap-4">
-                            <button @click='updateProfil' class="modificateButton w-full">Up To Date</button>
+                            <button @click='updateProfil' class="modificateButton w-full">Update</button>
                             <button @click="logOut" class="logOutButton w-full">Log Out</button>
                         </div>
                     </div>
@@ -53,6 +63,7 @@ const router = useRouter();
 const Username = ref('')
 const Email = ref('')
 var changement = ref(false)
+var resetPassword = ref(false)
 // var newPassword = getASecureRandomPassword();
 const Password = ref('')
 
@@ -70,7 +81,7 @@ const updateProfil = () => {
         updateProfile(auth, {
             displayName: Username.value, email: Email.value,
         }).then(() => {
-            changement.value = ref('Account informations have been changed !')
+            changement.value = ref('The account informations has been modified !')
             console.log('eyooh')
             console.log('profile mit jour')
         }).catch((error) => {
@@ -82,6 +93,7 @@ const updateProfil = () => {
 const updatePassword = () => {
     sendPasswordResetEmail(getAuth(), auth.email)
     .then(()=>{
+        resetPassword.value = ref('The link to reset the password has been sent !')
         console.log('email envoyé')
     })
     .catch((error)=>{
