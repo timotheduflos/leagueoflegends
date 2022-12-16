@@ -145,7 +145,7 @@ export default {
     color: white;
     display: flex;
     justify-content: center;
-    background: url('/assets/LeagueofLegends.svg');
+    background: url('/assets/LeagueofLegends1.svg');
     background-color: rgb(22, 22, 22);
     background-size: 100px;
 }
