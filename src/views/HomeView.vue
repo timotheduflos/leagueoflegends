@@ -1,7 +1,7 @@
 <script setup>
 import ClassDescribe from "../components/ClassDescribe.vue";
 import ModeGameDescribe from "../components/ModeGameDescribe.vue";
-import Test from "../components/Test.vue";
+
 import VideoBackground from "../components/VideoBackground.vue";
 </script>
 
