@@ -21,12 +21,81 @@
             <div class="flex flex-col gap-y-4">
                 <div class="game flex bg-gray-900" v-for="summonerGame, index in summonerGames" :key="index">
                     <div class="personnalScore">
-                        <div class="flex">
+                        <div class="flex w-full">
                             <img :src="`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${summonerHimself[index].championName}_0.jpg`"
-                                class="championPick">
-                                <div class="p-2 flex">
-                                    <img :src="`https://ddragon.leagueoflegends.com/cdn/extras/summonerspells/${summonerHimself[index].summoner1Id}.png`">
+                                class="championPick w-full">
+                            <div class="p-2 w-full">
+                                <!-- Summoner Spell 1 -->
+                                <div class="pb-1">
+                                    <div v-if="summonerHimself[index].summoner1Id === 21">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Barrier.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 13">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Clarity.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 1">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Cleanse.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 3">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Exhaust.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 4">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Flash.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 6">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Ghost.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 7">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Heal.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 14">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Ignite.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 39">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Mark.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 11">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Smite.webp">
+                                    </div>
+                                    <div v-if="summonerHimself[index].summoner1Id === 12">
+                                        <img class='summonerSpell' src="/assets/summonerSpell/Teleport.webp">
+                                    </div>
                                 </div>
+                                <!-- Summoner Spell 2 -->
+                                <div v-if="summonerHimself[index].summoner2Id === 21">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Barrier.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 13">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Clarity.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 1">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Cleanse.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 3">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Exhaust.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 4">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Flash.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 6">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Ghost.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 7">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Heal.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 14">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Ignite.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 39">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Mark.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 11">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Smite.webp">
+                                </div>
+                                <div v-if="summonerHimself[index].summoner2Id === 12">
+                                    <img class='summonerSpell' src="/assets/summonerSpell/Teleport.webp">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="teamFight grid grid-cols-3 gap-x-4">
@@ -169,7 +238,10 @@ export default {
 }
 
 .championPick {
-    width: 10%;
+    flex: 0 1 auto;
+    width: 100px;
+    height: 100px;
+    min-height: 50px;
     min-width: 50px;
     border-radius: 10px;
 }
@@ -179,5 +251,10 @@ export default {
     flex: 0 1 auto;
     width: 40%;
     max-width: 500px;
+}
+
+.summonerSpell {
+    width: 30px;
+    height: 30px;
 }
 </style>

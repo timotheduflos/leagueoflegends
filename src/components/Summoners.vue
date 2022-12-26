@@ -41,18 +41,18 @@ export default {
             this.summonerFetch = false
 
             try {
-                let a = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summoner + "?api_key=RGAPI-a8f7c00f-e2b9-4fdb-b857-5cd54e384bbf")
+                let a = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summoner + "?api_key=RGAPI-c2283c5b-a156-45ea-9417-96492044ac94")
                 const b = await a.json();
                 this.summonerName = b
                 this.summonerFetch = true
                 console.log(b)
 
-                let matchId = await fetch("https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/" + b.puuid + "/ids?api_key=RGAPI-a8f7c00f-e2b9-4fdb-b857-5cd54e384bbf")
+                let matchId = await fetch("https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/" + b.puuid + "/ids?api_key=RGAPI-c2283c5b-a156-45ea-9417-96492044ac94")
                 const secondStep = await matchId.json();
                 console.log(secondStep)
 
                 for (let index = 0; index < secondStep.length; index++) {
-                    let gameDetails = await fetch('https://europe.api.riotgames.com/lol/match/v5/matches/' + secondStep[index] + "?api_key=RGAPI-a8f7c00f-e2b9-4fdb-b857-5cd54e384bbf")
+                    let gameDetails = await fetch('https://europe.api.riotgames.com/lol/match/v5/matches/' + secondStep[index] + "?api_key=RGAPI-c2283c5b-a156-45ea-9417-96492044ac94")
                     const gameDetail = await gameDetails.json();
                     this.summonerGames.push(gameDetail)
                 }
