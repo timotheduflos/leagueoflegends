@@ -19,82 +19,145 @@
                 </div>
             </div>
             <div class="flex flex-col gap-y-4">
-                <div class="game flex bg-gray-900" v-for="summonerGame, index in summonerGames" :key="index">
-                    <div class="personnalScore">
-                        <div class="flex w-full">
+                <div class="game flex gap-x-8 bg-slate-900 rounded-lg" v-for="summonerGame, index in summonerGames"
+                    :key="index">
+                    <div class="personnalScore flex-col pb-1">
+                        <div class="flex w-full flex-none pb-1">
                             <img :src="`https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/${summonerHimself[index].championName}_0.jpg`"
                                 class="championPick w-full">
-                            <div class="p-2 w-full">
-                                <!-- Summoner Spell 1 -->
-                                <div class="pb-1">
-                                    <div v-if="summonerHimself[index].summoner1Id === 21">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Barrier.webp">
+                            <div class="px-2 w-full flex flex-col gap-y-2">
+                                <div class="flex gap-x-2">
+                                    <div>
+                                        <!-- Summoner Spell 1 -->
+                                        <div class="pb-2">
+                                            <div v-if="summonerHimself[index].summoner1Id === 21">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Barrier.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 13">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Clarity.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 1">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Cleanse.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 3">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Exhaust.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 4">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Flash.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 6">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Ghost.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 7">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Heal.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 14">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Ignite.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 39">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Mark.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 11">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Smite.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner1Id === 12">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Teleport.webp">
+                                            </div>
+                                        </div>
+                                        <!-- Summoner Spell 2 -->
+                                        <div class="flex">
+                                            <div v-if="summonerHimself[index].summoner2Id === 21">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Barrier.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 13">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Clarity.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 1">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Cleanse.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 3">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Exhaust.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 4">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Flash.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 6">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Ghost.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 7">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Heal.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 14">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Ignite.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 39">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Mark.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 11">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Smite.webp">
+                                            </div>
+                                            <div v-if="summonerHimself[index].summoner2Id === 12">
+                                                <img class='summonerSpell' src="/assets/summonerSpell/Teleport.webp">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 13">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Clarity.webp">
+                                    <div>
+                                        <div v-for="runes in rune" class="">
+                                            <div v-for="runesSpec in runes.slots[0].runes">
+                                                <div v-if="runesSpec.id == summonerHimself[index].perks.styles[0].selections[0].perk"
+                                                    class="pb-2">
+                                                    <img class="runeSpell"
+                                                        :src="`http://ddragon.canisback.com/img/${runesSpec.icon}`"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div v-for="runes in rune" class="">
+                                            <div v-if="runes.id == summonerHimself[index].perks.styles[1].style">
+                                                <img class="runeSpell"
+                                                    :src="`http://ddragon.canisback.com/img/${runes.icon}`" alt="">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 1">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Cleanse.webp">
-                                    </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 3">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Exhaust.webp">
-                                    </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 4">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Flash.webp">
-                                    </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 6">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Ghost.webp">
-                                    </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 7">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Heal.webp">
-                                    </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 14">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Ignite.webp">
-                                    </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 39">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Mark.webp">
-                                    </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 11">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Smite.webp">
-                                    </div>
-                                    <div v-if="summonerHimself[index].summoner1Id === 12">
-                                        <img class='summonerSpell' src="/assets/summonerSpell/Teleport.webp">
+                                    <div>
+                                        <h1>{{ summonerHimself[index].kills }} / {{ summonerHimself[index].deaths }} / {{ summonerHimself[index].assists }}</h1>
+                                        <div v-if="(summonerHimself[index].kills + summonerHimself[index].assists)/summonerHimself[index].deaths == Infinity">
+                                            <h1>Perfect KDA</h1>
+                                        </div>
+                                        <div v-if="Number.isNaN((summonerHimself[index].kills + summonerHimself[index].assists)/summonerHimself[index].deaths) || (summonerHimself[index].kills + summonerHimself[index].assists)/summonerHimself[index].deaths == 0 ">
+                                            <h1>0.00:1 KDA</h1>
+                                        </div>
+                                        <div v-else>
+                                            <h1>{{ ((summonerHimself[index].kills + summonerHimself[index].assists)/summonerHimself[index].deaths).toFixed(2) }}:1 KDA</h1>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- Summoner Spell 2 -->
-                                <div v-if="summonerHimself[index].summoner2Id === 21">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Barrier.webp">
+                                <!-- championObject -->
+                                <div class="flex gap-x-2 flex-1 items-center">
+                                    <img :src="`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${summonerHimself[index].item0}.png`"
+                                        alt="" class="championObject">
+                                    <img :src="`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${summonerHimself[index].item1}.png`"
+                                        alt="" class="championObject">
+                                    <img :src="`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${summonerHimself[index].item2}.png`"
+                                        alt="" class="championObject">
+                                    <img :src="`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${summonerHimself[index].item3}.png`"
+                                        alt="" class="championObject">
+                                    <img :src="`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${summonerHimself[index].item4}.png`"
+                                        alt="" class="championObject">
+                                    <img :src="`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${summonerHimself[index].item5}.png`"
+                                        alt="" class="championObject">
+                                    <img :src="`http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/${summonerHimself[index].item6}.png`"
+                                        alt="" class="championObject">
                                 </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 13">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Clarity.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 1">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Cleanse.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 3">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Exhaust.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 4">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Flash.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 6">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Ghost.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 7">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Heal.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 14">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Ignite.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 39">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Mark.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 11">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Smite.webp">
-                                </div>
-                                <div v-if="summonerHimself[index].summoner2Id === 12">
-                                    <img class='summonerSpell' src="/assets/summonerSpell/Teleport.webp">
-                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 h-10 flex w-full">
+                            <div v-if="summonerHimself[index].win"
+                                class="place-self-center text-center w-full bg-green-500 rounded-lg">
+                                <h1>Victory !</h1>
+                            </div>
+                            <div v-else class="place-self-center text-center w-full bg-red-500 rounded-lg">
+                                <h1 class="">Defeat !</h1>
                             </div>
                         </div>
                     </div>
@@ -144,10 +207,19 @@ export default {
         'fetch',
     ],
 
+    data() {
+        return {
+            rune: [],
+        }
+    },
+
     methods: {
-        test() {
+        async test() {
             if (fetch) {
-                console.log('WEEEESSHHHHHHh')
+                let runes = await fetch('http://ddragon.leagueoflegends.com/cdn/10.22.1/data/en_US/runesReforged.json')
+                const rune = await runes.json()
+                console.log(rune)
+                this.rune = rune
             }
         }
     },
@@ -239,8 +311,8 @@ export default {
 
 .championPick {
     flex: 0 1 auto;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 100%;
     min-height: 50px;
     min-width: 50px;
     border-radius: 10px;
@@ -254,6 +326,16 @@ export default {
 }
 
 .summonerSpell {
+    width: 30px;
+    height: 30px;
+}
+
+.championObject {
+    width: 30px;
+    height: 30px;
+}
+
+.runeSpell {
     width: 30px;
     height: 30px;
 }
