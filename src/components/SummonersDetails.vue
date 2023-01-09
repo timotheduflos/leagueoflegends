@@ -1,3 +1,7 @@
+<script setup>
+import StatSummoner from './StatSummoner.vue';
+</script>
+
 <template>
     <div class="text-white">
         <div v-if="summonerFetch == false">
@@ -11,12 +15,16 @@
         </div>
         <div v-else-if="fetch" class="container">
             <div class="presentation">
-                <img :src="`https://ddragon.leagueoflegends.com/cdn/12.22.1/img/profileicon/${summonerName.profileIconId}.png`"
+                <img :src="`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/profileicon/${summonerName.profileIconId}.png`"
                     class="logo">
                 <div class="">
                     <h1>{{ summonerName.name }}</h1>
                     <p>lvl {{ summonerName.summonerLevel }}</p>
                 </div>
+            </div>
+            <div>
+                <StatSummoner :summonerName="summonerName" :summonerGames="summonerGames"
+                    :summonerHimself="summonerHimself" />
             </div>
             <div class="flex flex-col gap-y-4">
                 <div class="game flex gap-x-8 bg-slate-900 rounded-lg" v-for="summonerGame, index in summonerGames"
@@ -30,79 +38,79 @@
                                     <div>
                                         <!-- Summoner Spell 1 -->
                                         <div class="pb-2">
-                                            <div v-if="summonerHimself[index].summoner1Id === 21">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 21">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Barrier.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 13">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 13">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Clarity.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 1">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 1">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Cleanse.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 3">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 3">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Exhaust.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 4">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 4">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Flash.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 6">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 6">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Ghost.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 7">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 7">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Heal.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 14">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 14">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Ignite.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 39">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 39">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Mark.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 11">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 11">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Smite.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner1Id === 12">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner1Id === 12">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Teleport.webp">
                                             </div>
                                         </div>
                                         <!-- Summoner Spell 2 -->
                                         <div class="flex">
-                                            <div v-if="summonerHimself[index].summoner2Id === 21">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 21">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Barrier.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 13">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 13">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Clarity.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 1">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 1">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Cleanse.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 3">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 3">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Exhaust.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 4">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 4">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Flash.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 6">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 6">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Ghost.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 7">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 7">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Heal.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 14">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 14">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Ignite.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 39">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 39">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Mark.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 11">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 11">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Smite.webp">
                                             </div>
-                                            <div v-if="summonerHimself[index].summoner2Id === 12">
+                                            <div class="min-w-max" v-if="summonerHimself[index].summoner2Id === 12">
                                                 <img class='summonerSpell' src="/assets/summonerSpell/Teleport.webp">
                                             </div>
                                         </div>
                                     </div>
                                     <div>
-                                        <div v-for="runes in rune" class="">
+                                        <div v-for="runes in rune" class="min-w-max">
                                             <div v-for="runesSpec in runes.slots[0].runes">
                                                 <div v-if="runesSpec.id == summonerHimself[index].perks.styles[0].selections[0].perk"
                                                     class="pb-2">
@@ -119,16 +127,52 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <h1>{{ summonerHimself[index].kills }} / {{ summonerHimself[index].deaths }} / {{ summonerHimself[index].assists }}</h1>
-                                        <div v-if="(summonerHimself[index].kills + summonerHimself[index].assists)/summonerHimself[index].deaths == Infinity">
-                                            <h1>Perfect KDA</h1>
+                                    <div class="w-1/3 min-w-fit flex justify-center items-center">
+                                        <div class="text-center">
+                                            <h1 class="score">{{ summonerHimself[index].kills }} / {{
+                                                summonerHimself[index].deaths
+                                            }}
+                                                / {{ summonerHimself[index].assists }}</h1>
+                                            <div
+                                                v-if="(summonerHimself[index].kills + summonerHimself[index].assists) / summonerHimself[index].deaths == Infinity">
+                                                <h1 class="kda">Perfect KDA</h1>
+                                            </div>
+                                            <div
+                                                v-else-if="Number.isNaN((summonerHimself[index].kills + summonerHimself[index].assists) / summonerHimself[index].deaths) || (summonerHimself[index].kills + summonerHimself[index].assists) / summonerHimself[index].deaths == 0">
+                                                <h1 class="kda">0.00 :1 KDA</h1>
+                                            </div>
+                                            <div v-else>
+                                                <h1 class="kda">{{ ((summonerHimself[index].kills +
+                                                    summonerHimself[index].assists) /
+                                                    summonerHimself[index].deaths).toFixed(2)
+                                                }} :1 KDA</h1>
+                                            </div>
                                         </div>
-                                        <div v-if="Number.isNaN((summonerHimself[index].kills + summonerHimself[index].assists)/summonerHimself[index].deaths) || (summonerHimself[index].kills + summonerHimself[index].assists)/summonerHimself[index].deaths == 0 ">
-                                            <h1>0.00:1 KDA</h1>
-                                        </div>
-                                        <div v-else>
-                                            <h1>{{ ((summonerHimself[index].kills + summonerHimself[index].assists)/summonerHimself[index].deaths).toFixed(2) }}:1 KDA</h1>
+                                    </div>
+                                    <div class="w-full justify-end flex pl-4 items-center border-l-2 text-end">
+                                        <div>
+                                            <h1 class="gameMode" v-if="summonerGame.info.queueId == 400">Normal</h1>
+                                            <h1 class="gameMode" v-if="summonerGame.info.queueId == 420">Ranked Solo
+                                            </h1>
+                                            <h1 class="gameMode" v-if="summonerGame.info.queueId == 440">Ranked Flex
+                                            </h1>
+                                            <h1 class="time">{{ Math.floor(summonerGame.info.gameDuration / 60) }}m :
+                                                {{ summonerGame.info.gameDuration % 60 }}s</h1>
+                                            <h1 class="date"
+                                                v-if="Math.ceil(Math.abs((new Date(summonerGame.info.gameStartTimestamp)) - (new Date())) / (1000 * 60 * 60 * 24)) === 0">
+                                                Today</h1>
+                                            <h1 class="date"
+                                                v-if="Math.ceil(Math.abs((new Date(summonerGame.info.gameStartTimestamp)) - (new Date())) / (1000 * 60 * 60 * 24)) === 1">
+                                                {{
+                                                    Math.ceil(Math.abs((new Date(summonerGame.info.gameStartTimestamp)) -
+                                                        (new Date())) / (1000 * 60 * 60 * 24))
+                                                }} day ago</h1>
+                                            <h1 class="date"
+                                                v-if="Math.ceil(Math.abs((new Date(summonerGame.info.gameStartTimestamp)) - (new Date())) / (1000 * 60 * 60 * 24)) > 1">
+                                                {{
+                                                    Math.ceil(Math.abs((new Date(summonerGame.info.gameStartTimestamp)) -
+                                                        (new Date())) / (1000 * 60 * 60 * 24))
+                                                }} days ago</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +238,7 @@
             </div>
         </div>
     </div>
-</template>
+</template >
 
 <script>
 export default {
@@ -210,6 +254,9 @@ export default {
     data() {
         return {
             rune: [],
+            // summonerName: [],
+            // summonerGames: [],
+            // summonerHimself: [],
         }
     },
 
@@ -328,6 +375,7 @@ export default {
 .summonerSpell {
     width: 30px;
     height: 30px;
+    width: min-content;
 }
 
 .championObject {
@@ -338,5 +386,35 @@ export default {
 .runeSpell {
     width: 30px;
     height: 30px;
+}
+
+.score {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.kda {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.gameMode {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.time {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.date {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
 }
 </style>
