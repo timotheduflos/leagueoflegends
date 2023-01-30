@@ -15,7 +15,7 @@ import StatSummoner from './StatSummoner.vue';
         </div>
         <div v-else-if="fetch" class="container">
             <div class="presentation">
-                <img :src="`https://ddragon.leagueoflegends.com/cdn/12.23.1/img/profileicon/${summonerName.profileIconId}.png`"
+                <img :src="`https://ddragon.leagueoflegends.com/cdn/13.1.1/img/profileicon/${summonerName.profileIconId}.png`"
                     class="logo">
                 <div class="">
                     <h1>{{ summonerName.name }}</h1>
@@ -24,7 +24,7 @@ import StatSummoner from './StatSummoner.vue';
             </div>
             <div>
                 <StatSummoner :summonerName="summonerName" :summonerGames="summonerGames"
-                    :summonerHimself="summonerHimself" />
+                    :summonerHimself="summonerHimself" :rank="rank" />
             </div>
             <div class="flex flex-col gap-y-4">
                 <div class="game flex gap-x-8 bg-slate-900 rounded-lg" v-for="summonerGame, index in summonerGames"
@@ -249,6 +249,7 @@ export default {
         'lane',
         'summonerHimself',
         'fetch',
+        'rank'
     ],
 
     data() {

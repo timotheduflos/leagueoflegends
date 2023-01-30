@@ -7,7 +7,7 @@ import SearchSummonersVue from './SearchSummoners.vue';
     <div class="container">
         <SearchSummonersVue :summoners="summoners" />
         <SummonersDetailsVue :summonerName="summonerName" :summonerFetch="summonerFetch" :summonerGames="summonerGames"
-            :lane="lane" :summonerHimself="summonerHimself" :fetch="fetch" />
+            :lane="lane" :summonerHimself="summonerHimself" :fetch="fetch" :rank="rank" />
     </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
             summoner: '',
             summonerName: [],
             summonerGames: [],
+            rank: [],
             lane: ['TOP', 'JUNGLE', 'MIDDLE', 'BOTTOM', 'UTILITY'],
             summonerHimself: [],
             summonerFetch: false,
@@ -41,18 +42,23 @@ export default {
             this.summonerFetch = false
 
             try {
-                let a = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summoner + "?api_key=RGAPI-ef577b86-1157-46fb-ae96-a1b4e3eb1c1f")
+                let a = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summoner + "?api_key=RGAPI-d2146320-e36d-4c05-9ced-f081dff0bed5")
                 const b = await a.json();
                 this.summonerName = b
                 this.summonerFetch = true
                 console.log(b)
 
-                let matchId = await fetch("https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/" + b.puuid + "/ids?api_key=RGAPI-ef577b86-1157-46fb-ae96-a1b4e3eb1c1f")
+                let z = await fetch("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + b.id + "?api_key=RGAPI-d2146320-e36d-4c05-9ced-f081dff0bed5")
+                const y = await z.json();
+                console.log(y)
+                this.rank = y
+
+                let matchId = await fetch("https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/" + b.puuid + "/ids?api_key=RGAPI-d2146320-e36d-4c05-9ced-f081dff0bed5")
                 const secondStep = await matchId.json();
                 console.log(secondStep)
 
                 for (let index = 0; index < secondStep.length; index++) {
-                    let gameDetails = await fetch('https://europe.api.riotgames.com/lol/match/v5/matches/' + secondStep[index] + "?api_key=RGAPI-ef577b86-1157-46fb-ae96-a1b4e3eb1c1f")
+                    let gameDetails = await fetch('https://europe.api.riotgames.com/lol/match/v5/matches/' + secondStep[index] + "?api_key=RGAPI-d2146320-e36d-4c05-9ced-f081dff0bed5")
                     const gameDetail = await gameDetails.json();
                     this.summonerGames.push(gameDetail)
                 }
